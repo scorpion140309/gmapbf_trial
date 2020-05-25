@@ -1,0 +1,115 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0	 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja">
+	<head>
+		<title>GMAP-BF 対策(デバッグ中)</title>
+        <link rel="stylesheet" type="text/css" href="css/gmapbf.css">
+		<script type="text/javascript" src="./js/my_rand.js"></script>
+		<script type="text/javascript" src="./js/gmapbf_test.js"></script>
+	</head>
+
+	<body onload="ExeAll()">
+		<form name="formName" method="post" action="./pathToProgramFile">
+
+			<p>
+				<table border="0">
+					<tr>
+						<td></td>
+						<td>科目</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td><select id="category"></select></td>
+					</tr>
+				</table>
+			</p>
+			<p>
+
+			<!--
+			-->
+			<table border="0" width="100%" >
+				<tr>
+					<td></td>
+					<td align="center">問題</td>
+				</tr>
+				<tr>
+					<td></td>
+					<td>
+						<textarea readonly id="question_id" name="question" cols="40" rows="4" text="aaa"
+						>auestion</textarea>
+					</td>
+				</tr>
+				<tr>
+					<td></td>
+					<td align="center">選択肢</td>
+				</tr>
+				<tr>
+					<td>
+						<input id="okng_0" type="button" value="0" style="width: 100%;">
+					</td>
+					<td>
+						<input id="ans0" type="button" value="0" style="width: 100%;" onclick="Anser(0)">
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<input id="okng_1" type="button" value="1" style="width: 100%;">
+					</td>
+					<td>
+						<input id="ans1" type="button" value="1" style="width: 100%;" onclick="Anser(1)">
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<input id="okng_2" type="button" value="2" style="width: 100%;">
+					</td>
+					<td>
+						<input id="ans2" type="button" value="2" style="width: 100%;" onclick="Anser(2)">
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<input id="okng_3" type="button" value="3" style="width: 100%;">
+					</td>
+					<td>
+						<input id="ans3" type="button" value="3" style="width: 100%;" onclick="Anser(3)">
+					</td>
+				</tr>
+				<tr>
+					<td></td>
+					<td align="center">解説</td>
+				</tr>
+				<tr>
+					<td></td>
+					<td>
+						<textarea readonly id="reference_id" cols="40" rows="2" style="color:#0080F0"
+						>ref</textarea>
+					</td>
+				</tr>
+				<tr>
+					<td></td>
+					<td>
+					<table width="100%">
+						<tr>
+							<td>
+								<input name="id_btn_go" type="button" value="もどる" style="width:100%;" onclick="ExeAll()">
+							</td>
+							<td>
+								<input name="id_btn_back" type="button" value="すすむ" style="width:100%;" onclick="ExeAll()">
+							</td>
+						</tr>
+
+					<table>
+					</td>
+				</tr>
+
+			</table>
+
+		</form>
+
+
+	</body>
+</html>

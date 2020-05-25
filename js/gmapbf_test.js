@@ -1,5 +1,5 @@
 ﻿//
-function ShowQuestionSingle_()
+function ShowQuestionSingle_(a_category_id, a_quiz_id)
 {
 	// 問題文
 	let item_q = document.getElementById('question_id');
@@ -100,13 +100,19 @@ function SetCategory_()
 
 
 //
-function ExeAll()
+function Init()
 {
 	SetCategory_();
-	ShowQuestionSingle_();
+	ShowQuestionSingle_(0, 0);
 	return;
 }
 
+//
+function ExeAll()
+{
+	ShowQuestionSingle_(0, 0);
+	return;
+}
 
 //
 function Anser(a_ans_id)

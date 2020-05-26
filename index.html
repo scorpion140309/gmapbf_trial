@@ -8,6 +8,7 @@
 		<title>GMAP-BF 対策(デバッグ中)</title>
         <link rel="stylesheet" type="text/css" href="css/gmapbf.css">
 		<script type="text/javascript" src="./js/my_rand.js"></script>
+		<script type="text/javascript" src="./js/GMAPBF_TRAINING.js"></script>
 		<script type="text/javascript" src="./js/Quiz4Class.js"></script>
 		<script type="text/javascript" src="./js/gmapbf_test.js"></script>
 	</head>
@@ -40,7 +41,7 @@
 					<td></td>
 					<td>
 						<textarea readonly id="question_id" name="question" cols="40" rows="4" text="aaa"
-						>auestion</textarea>
+						>question</textarea>
 					</td>
 				</tr>
 				<tr>
@@ -95,10 +96,13 @@
 					<td>
 					<table width="100%">
 						<tr>
-							<td>
+							<td style="width:40%;">
 								<input name="id_btn_go" type="button" value="もどる" style="width:100%;" onclick="ExeAll()">
 							</td>
-							<td>
+							<td style="width:20%;">
+								<select id="quiz_id" style="width:100%;text-align:-webkit-center;"></select>
+							</td>
+							<td style="width:40%;">
 								<input name="id_btn_back" type="button" value="すすむ" style="width:100%;" onclick="ExeAll()">
 							</td>
 						</tr>

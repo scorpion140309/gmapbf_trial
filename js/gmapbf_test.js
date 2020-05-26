@@ -98,11 +98,15 @@ function SetCategory_()
 	return;
 }
 
+//
+var gt = null;
 
 //
 function Init()
 {
-	SetCategory_();
+	gt = new GMAPBF_TRAINING();
+	gt.func_dummy();
+	//SetCategory_();
 	ShowQuestionSingle_(0, 0);
 	return;
 }

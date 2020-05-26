@@ -14,10 +14,11 @@ function Init()
 }
 
 //
-function ExeAll()
+function ExeAll(a_go_back)
 {
 	if (gt != null)
 	{
+		gt.GoBack(a_go_back);
 		gt.ShowQuestion();
 	}
 	return;
@@ -26,7 +27,6 @@ function ExeAll()
 //
 function Anser(a_ans_id)
 {
-	//ShowAnser_and_Reference_(a_ans_id);
 	if (gt != null)
 	{
 		gt.ShowAnser_and_Reference(a_ans_id);

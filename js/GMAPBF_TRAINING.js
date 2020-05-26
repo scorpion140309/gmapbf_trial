@@ -3,6 +3,8 @@ class GMAPBF_TRAINING
 {
 	constructor()
 	{
+		// Database
+		this.SetDatabase_();
 		// GUIのIDを取得
 		this.GetElements_();
 		//
@@ -21,6 +23,17 @@ class GMAPBF_TRAINING
 	//
 	//--------------------------------------------------------------
 
+	//
+	SetDatabase_()
+	{
+		this.qa_database_ = new Array(
+			BusinessStrategyDatabase,
+			MarketingDatabase,
+			AccountingDatabase,
+			HumanResourceManagementDatabase,
+			);
+		return;
+	}
 	// GUIのIDを取得
 	GetElements_()
 	{
@@ -112,22 +125,35 @@ class GMAPBF_TRAINING
 	//
     GetQuestion_(a_category_id, a_quiz_id)
     {
-		let ret_str_q = '企業が競争優位を保てるかどうかは企業の経営資源とやケイパビリティ次第であるという考え方を何と呼ぶか？';
+		const qa = this.Get_Q_and_A_(a_category_id, a_quiz_id);
+		let ret_str_q = qa[0];
         return ret_str_q;
     }
 	
 	//
     GetAnsers_(a_category_id, a_quiz_id)
     {
-		let ret_ary_str_ans =
+		const qa = this.Get_Q_and_A_(a_category_id, a_quiz_id);
+		const ret_ary_str_ans =
 		[
-			'リソース・ベースド・ビュー',
-			'アビリティ・ベースド・ビュー',
-			'ポテンシャル・ベースド・ビュー',
-			'コンピテンシー・ベースド・ビュー',
+			qa[1],qa[2],qa[3],qa[4],
 		];
 		return ret_ary_str_ans;
+	}
+
+	//
+	GetReference_(a_category_id, a_quiz_id)
+    {
+		const qa = this.Get_Q_and_A_(a_category_id, a_quiz_id);
+		let ret_str_q = qa[5];
+        return ret_str_q;
     }
+
+	//
+	Get_Q_and_A_(a_category_id, a_quiz_id)
+	{
+		return this.qa_database_[a_category_id][a_quiz_id];
+	}
 
 
 	////////////////////////////////////////////////////////////////
@@ -139,8 +165,11 @@ class GMAPBF_TRAINING
 	//
     ShowQuestion()
     {
+		const id_category = this.selector_category_.selectedIndex;
+        const id_quiz = this.selector_quiz_id_.selectedIndex;
+
 		// 問題文
-		this.text_area_qestion_.value = this.GetQuestion_();
+		this.text_area_qestion_.value = this.GetQuestion_(id_category, id_quiz);
 
 		// 選択肢番号
 		for (let i = 0; i < this.ary_btn_okng_.length; i++)
@@ -152,7 +181,7 @@ class GMAPBF_TRAINING
 		}
 
 		// 選択肢
-		const ary_str_ans = this.GetAnsers_();
+		const ary_str_ans = this.GetAnsers_(id_category, id_quiz);
 
 		for (let i = 0; i < this.ary_btn_ans_.length; i++)
 		{
@@ -188,7 +217,19 @@ class GMAPBF_TRAINING
 		}
 	
 		//
-		this.text_area_ref_.value = '1-17 戦略形成に関する見方」 参照';
+		const id_category = this.selector_category_.selectedIndex;
+        const id_quiz = this.selector_quiz_id_.selectedIndex;
+		this.text_area_ref_.value = this.GetReference_(id_category, id_quiz);;
+		return;
+	}
+
+	//
+	GoBack(a_go_back)
+	{
+		let tmp_id = this.selector_quiz_id_.selectedIndex;
+		tmp_id += a_go_back;
+		tmp_id %= this.selector_quiz_id_.length;
+		this.selector_quiz_id_.selectedIndex =  tmp_id;
 		return;
 	}
 

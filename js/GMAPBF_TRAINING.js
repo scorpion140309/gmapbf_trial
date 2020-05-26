@@ -228,7 +228,14 @@ class GMAPBF_TRAINING
 	{
 		let tmp_id = this.selector_quiz_id_.selectedIndex;
 		tmp_id += a_go_back;
-		tmp_id %= this.selector_quiz_id_.length;
+		if (tmp_id >= this.selector_quiz_id_.length)
+		{
+			tmp_id = 0;
+		}
+		else if(tmp_id < 0)
+		{
+			tmp_id = this.selector_quiz_id_.length - 1;
+		}
 		this.selector_quiz_id_.selectedIndex =  tmp_id;
 		return;
 	}

@@ -14,7 +14,7 @@ function Init()
 }
 
 //
-function ExeAll(a_go_back)
+function GMAPBG_Q(a_go_back)
 {
 	if (gt != null)
 	{
@@ -25,7 +25,7 @@ function ExeAll(a_go_back)
 }
 
 //
-function Anser(a_ans_id)
+function GMAPBG_Anser(a_ans_id)
 {
 	if (gt != null)
 	{

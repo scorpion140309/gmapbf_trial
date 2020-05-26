@@ -8,6 +8,10 @@
 		<title>GMAP-BF 対策(デバッグ中)</title>
         <link rel="stylesheet" type="text/css" href="css/gmapbf.css">
 		<script type="text/javascript" src="./js/my_rand.js"></script>
+		<script type="text/javascript" src="./js/Database/Database_BusinessStrategy.js"></script>
+		<script type="text/javascript" src="./js/Database/Database_Marketing.js"></script>
+		<script type="text/javascript" src="./js/Database/Database_Acconting.js"></script>
+		<script type="text/javascript" src="./js/Database/Database_HumanResourceManagement.js"></script>
 		<script type="text/javascript" src="./js/GMAPBF_TRAINING.js"></script>
 		<script type="text/javascript" src="./js/Quiz4Class.js"></script>
 		<script type="text/javascript" src="./js/gmapbf_test.js"></script>
@@ -24,7 +28,7 @@
 					</tr>
 					<tr>
 						<td></td>
-						<td><select id="category" onchange="ExeAll()"></select></td>
+						<td><select id="category" onchange="ExeAll(0)"></select></td>
 					</tr>
 				</table>
 			</p>
@@ -104,13 +108,13 @@
 					<table width="100%">
 						<tr>
 							<td style="width:40%;">
-								<input name="id_btn_go" type="button" value="もどる" style="width:100%;" onclick="ExeAll()">
+								<input name="id_btn_go" type="button" value="もどる" style="width:100%;" onclick="ExeAll(-1)">
 							</td>
 							<td style="width:20%;" align="center">
-								<select id="quiz_id" style="width:60%; text-align:-webkit-center;" onchange="ExeAll()"></select>
+								<select id="quiz_id" style="width:60%; text-align:-webkit-center;" onchange="ExeAll(0)"></select>
 							</td>
 							<td style="width:40%;">
-								<input name="id_btn_back" type="button" value="すすむ" style="width:100%;" onclick="ExeAll()">
+								<input name="id_btn_back" type="button" value="すすむ" style="width:100%;" onclick="ExeAll(1)">
 							</td>
 						</tr>
 

@@ -4,7 +4,6 @@
 
 //
 var gt = null;
-
 //
 function Init()
 {

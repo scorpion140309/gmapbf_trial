@@ -1,21 +1,37 @@
 //
 class Quiz4
 {
-    // 四択パターン
-    static st_ary_anser_pattern_ = new Array(
-		0x0123,0x0132,0x0213,0x0231,0x0312,0x0321,
-		0x1023,0x1032,0x1203,0x1230,0x1302,0x1320,
-		0x2013,0x2031,0x2103,0x2130,0x2301,0x2310,
-		0x3012,0x3021,0x3102,0x3120,0x3201,0x3210
-	);
-
     constructor(a_qnum, a_ary_quiz)
     {
+        // 四択パターン
+        this.ary_anser_pattern_ = new Array(
+            0x0123,0x0132,0x0213,0x0231,0x0312,0x0321,
+            0x1023,0x1032,0x1203,0x1230,0x1302,0x1320,
+            0x2013,0x2031,0x2103,0x2130,0x2301,0x2310,
+            0x3012,0x3021,0x3102,0x3120,0x3201,0x3210
+        );
+
         // 出題数(問題のストック数ではない)
         this.question_num_ = a_qnum;
         // 問題の配列
         this.ary_question_ = a_ary_quiz;
     }
+
+    //
+    GetAnsPattern(a_rand)
+    {
+        let ret_ary = new Array();
+        const id = a_rand % this.ary_anser_pattern_.length;
+        const pattern = this.ary_anser_pattern_[id];
+        for (let i = 0; i < 4; i++)
+        {
+            const ans0123 = (pattern >> (4*(3-i)) & 0x03);
+            ret_ary.push(ans0123);
+        }
+		return ret_ary;
+	}
+
+
 }
 
 function C_SELECT_ONE() {

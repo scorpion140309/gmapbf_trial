@@ -32,6 +32,12 @@ class GMAPBF_TRAINING
 			AccountingDatabase,
 			HumanResourceManagementDatabase,
 			);
+			this.current_rnd_pattern_ = 0;
+			this.current_ans_ = -1;
+			ns_XorShift.Init();
+
+		this.my_quiz_ = new Quiz4();
+
 		return;
 	}
 	// GUIのIDを取得
@@ -166,7 +172,11 @@ class GMAPBF_TRAINING
     ShowQuestion()
     {
 		const id_category = this.selector_category_.selectedIndex;
+
+		// rand
+		this.current_rnd_pattern_ = ns_XorShift.GetRand() % (this.my_quiz_.ary_anser_pattern_.length);
         const id_quiz = this.selector_quiz_id_.selectedIndex;
+		const ary_ptn = this.my_quiz_.GetAnsPattern(this.current_rnd_pattern_);
 
 		// 問題文
 		this.text_area_qestion_.value = this.GetQuestion_(id_category, id_quiz);
@@ -185,9 +195,17 @@ class GMAPBF_TRAINING
 
 		for (let i = 0; i < this.ary_btn_ans_.length; i++)
 		{
+			const id = ary_ptn[i];
 			let item_a = this.ary_btn_ans_[i];
-			item_a.value = ary_str_ans[i];
+			//item_a.value = ary_str_ans[i];
+			item_a.value = ary_str_ans[id];
 			item_a.style.backgroundImage = 'linear-gradient(0deg, #d0d0d0, #f0f0f0)';
+
+			if (id == 0)
+            {
+                this.current_ans_ = i;
+            }
+
 		}
 
 		//
@@ -198,12 +216,10 @@ class GMAPBF_TRAINING
 	//
 	ShowAnser_and_Reference(a_ans_id)
 	{
-		const correct_id = 0;
-
 		// 解答表示
 		for (let i = 0; i < this.ary_btn_okng_.length; i++)
 		{
-			let flag_okng = (i == correct_id);
+			let flag_okng = (i == this.current_ans_);
 			let str_okng = '';
 			let col_okng = 'linear-gradient(0deg, #d0a0d0, #f0a0f0)';
 			if (flag_okng)

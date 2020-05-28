@@ -27,15 +27,17 @@ class GMAPBF_TRAINING
 	SetDatabase_()
 	{
 		this.qa_database_ = new Array(
-			BusinessStrategyDatabase//,
-			//MarketingDatabase,
-			//AccountingDatabase,
-			//HumanResourceManagementDatabase,
+			BusinessStrategyDatabase,
+			MarketingDatabase,
+			AccountingDatabase,
+			HumanResourceManagementDatabase,
 			);
-			this.current_rnd_pattern_ = 0;
-			this.current_ans_ = -1;
-			ns_XorShift.Init();
+		this.current_rnd_pattern_ = 0;
+		this.current_ans_ = -1;
 
+		this.qa_database_.forEach(element=> element.sort());
+
+		
 		this.my_quiz_ = new Quiz4();
 
 		return;
@@ -143,7 +145,7 @@ class GMAPBF_TRAINING
 	//
 	GetReference_(a_category_id, a_quiz_id)
     {
-		return qa_database_[a_category_id][a_quiz_id].GetReference();
+		return this.qa_database_[a_category_id][a_quiz_id].GetReference();
     }
 
 	//

@@ -27,10 +27,10 @@ class GMAPBF_TRAINING
 	SetDatabase_()
 	{
 		this.qa_database_ = new Array(
-			BusinessStrategyDatabase,
-			MarketingDatabase,
-			AccountingDatabase,
-			HumanResourceManagementDatabase,
+			BusinessStrategyDatabase//,
+			//MarketingDatabase,
+			//AccountingDatabase,
+			//HumanResourceManagementDatabase,
 			);
 			this.current_rnd_pattern_ = 0;
 			this.current_ans_ = -1;
@@ -131,28 +131,19 @@ class GMAPBF_TRAINING
 	//
     GetQuestion_(a_category_id, a_quiz_id)
     {
-		const qa = this.Get_Q_and_A_(a_category_id, a_quiz_id);
-		let ret_str_q = qa[0];
-        return ret_str_q;
+		return this.qa_database_[a_category_id][a_quiz_id].GetQuestion();
     }
 	
 	//
     GetAnsers_(a_category_id, a_quiz_id)
     {
-		const qa = this.Get_Q_and_A_(a_category_id, a_quiz_id);
-		const ret_ary_str_ans =
-		[
-			qa[1],qa[2],qa[3],qa[4],
-		];
-		return ret_ary_str_ans;
-	}
-
+		return this.qa_database_[a_category_id][a_quiz_id].GetAnsPattern();
+    }
+	
 	//
 	GetReference_(a_category_id, a_quiz_id)
     {
-		const qa = this.Get_Q_and_A_(a_category_id, a_quiz_id);
-		let ret_str_q = qa[5];
-        return ret_str_q;
+		return qa_database_[a_category_id][a_quiz_id].GetReference();
     }
 
 	//
@@ -197,7 +188,6 @@ class GMAPBF_TRAINING
 		{
 			const id = ary_ptn[i];
 			let item_a = this.ary_btn_ans_[i];
-			//item_a.value = ary_str_ans[i];
 			item_a.value = ary_str_ans[id];
 			item_a.style.backgroundImage = 'linear-gradient(0deg, #d0d0d0, #f0f0f0)';
 

@@ -36,6 +36,16 @@ class GMAPBF_TRAINING
 		this.current_ans_ = -1;
 
 		this.qa_database_.forEach(element=> element.sort());
+		for (let i = 0; i < this.qa_database_.length;i++)
+		{
+			this.qa_database_[i].sort(
+				function(a,b)
+				{
+					if( a.CmpID() < b.CmpID() ) return -1;
+					if( a.CmpID() > b.CmpID() ) return 1;
+					return 0;
+				});
+		}
 
 		
 		this.my_quiz_ = new Quiz4();
@@ -59,7 +69,7 @@ class GMAPBF_TRAINING
 		const ary_ans_id =
 		[
 			'ans0','ans1','ans2','ans3',
-		];
+		];	
 		for (let i = 0; i < ary_ans_id.length; i++)
 		{
 			let elm = document.getElementById(ary_ans_id[i]);

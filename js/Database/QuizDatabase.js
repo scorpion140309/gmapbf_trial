@@ -16,12 +16,18 @@ class QuizDatabase
     }
 
     //
-    SetRand(a_rand)
+    CmpID()
     {
-        //
-        this.rand_ = a_rand;
-        return;
+        return this.rand_;
     }
+
+    //
+    //SetRand(a_rand)
+    //{
+    //    //
+    //    this.rand_ = a_rand;
+    //    return;
+    //}
     //
     GetQuestion()
     {

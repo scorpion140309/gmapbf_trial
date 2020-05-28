@@ -41,9 +41,16 @@ class GMAPBF_TRAINING
 			this.qa_database_[i].sort(
 				function(a,b)
 				{
-					if( a.CmpID() < b.CmpID() ) return -1;
-					if( a.CmpID() > b.CmpID() ) return 1;
-					return 0;
+					let ret_result = 0;
+					if( a.CmpID() < b.CmpID() )
+					{
+						ret_result = -1;
+					}
+					else if( a.CmpID() > b.CmpID() )
+					{
+						ret_result = 1;
+					} 
+					return ret_result;
 				});
 		}
 

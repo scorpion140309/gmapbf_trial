@@ -115,7 +115,7 @@ class GMAPBF_TRAINING
 	// 何問目
 	SetQuizeIdItems_()
 	{
-        this.q_num_ = 5;
+        this.q_num_ = 10;	// 出題数
 		this.selector_quiz_id_.options.length = 0;
 	
 		for (let i = 0; i < this.q_num_; i++)

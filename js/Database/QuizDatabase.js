@@ -11,7 +11,7 @@ class QuizDatabase
         // 四択パターン
         this.ary_anser_pattern_ = new Array(a_ans_0, a_ans_1, a_ans_2, a_ans_3);
 
-        // 出題数(問題のストック数ではない)
+        // 参照
         this.reference_ = a_reference;
     }
 

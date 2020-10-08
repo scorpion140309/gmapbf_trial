@@ -34,3 +34,13 @@ function GMAPBF_Anser(a_ans_id)
 	return;
 }
 
+//
+function GMAPBF_ChangeCategory()
+{
+	if (st_gmap_training != null)
+	{
+		st_gmap_training.SetQuizeIdItems_();
+		GMAPBF_Q(0);
+	}
+	return;
+}

@@ -20,8 +20,7 @@
 
 	<body onload="Init()">
 		<form name="formName" method="post" action="./pathToProgramFile">
-			<p>※仮設置です。予告なく消える可能性があります。</p>
-			<p>日替わりでランダムに出題されます(各科目10問)。</p>
+			<p>問題と選択肢の順序は日替わりです。</p>
 			<p>
 				<table border="0">
 					<tr>
@@ -30,7 +29,7 @@
 					</tr>
 					<tr>
 						<td></td>
-						<td><select id="category" onchange="GMAPBF_Q(0)"></select></td>
+						<td><select id="category" onchange="GMAPBF_ChangeCategory()"></select></td>
 					</tr>
 				</table>
 			</p>

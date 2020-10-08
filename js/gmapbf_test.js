@@ -3,32 +3,33 @@
 //
 
 //
-var gt = null;
+let st_gmap_training = null;
+
 //
 function Init()
 {
-	gt = new GMAPBF_TRAINING();
-	gt.ShowQuestion();
+	st_gmap_training = new GMAPBF_TRAINING();
+	st_gmap_training.ShowQuestion();
 	return;
 }
 
 //
-function GMAPBG_Q(a_go_back)
+function GMAPBF_Q(a_go_back)
 {
-	if (gt != null)
+	if (st_gmap_training != null)
 	{
-		gt.GoBack(a_go_back);
-		gt.ShowQuestion();
+		st_gmap_training.GoBack(a_go_back);
+		st_gmap_training.ShowQuestion();
 	}
 	return;
 }
 
 //
-function GMAPBG_Anser(a_ans_id)
+function GMAPBF_Anser(a_ans_id)
 {
-	if (gt != null)
+	if (st_gmap_training != null)
 	{
-		gt.ShowAnser_and_Reference(a_ans_id);
+		st_gmap_training.ShowAnser_and_Reference(a_ans_id);
 	}
 	return;
 }

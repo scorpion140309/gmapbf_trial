@@ -112,9 +112,11 @@ class GMAPBF_TRAINING
 	
 		return;
 	}
-	// 何問目
+
+	// 出題数に応じたGUI初期化処理
 	SetQuizeIdItems_()
 	{
+		// this.selector_quiz_id_ = document.getElementById('quiz_id');
         this.q_num_ = 20;	// 出題数
 		this.selector_quiz_id_.options.length = 0;
 	

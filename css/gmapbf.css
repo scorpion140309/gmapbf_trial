@@ -61,5 +61,11 @@ input[type="button"]:active
    color: #ff8000;
 }
 
+#container
+{
+	padding:10px;
+	border:1px solid #336699;
+	background-color:#f8f8f8;
+}
 
 
